@@ -12,6 +12,12 @@ System.config({
     "npm:*": "jspm_packages/npm/*"
   },
 
+  meta: {
+    "angular": {
+      "build": false
+    }
+  },
+
   map: {
     "angular": "github:angular/bower-angular@1.4.7",
     "babel": "npm:babel-core@5.8.25",

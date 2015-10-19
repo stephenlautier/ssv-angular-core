@@ -7,6 +7,7 @@ var sourcemaps = require("gulp-sourcemaps");
 var plumber = require("gulp-plumber");
 var dtsGen = require("dts-generator");
 var jspm = require("jspm");
+//var rjsOpt = require("gulp-requirejs-optimize");
 
 var paths = require("../paths");
 
@@ -64,14 +65,43 @@ gulp.task("compile:dts", () => {
 });
 
 
-gulp.task("compile:bundle", [], () => {
+gulp.task("compile:bundle", () => {
 
 	jspm.setPackagePath(".")
+	
+	// return gulp.src(`${paths.artifact}/index.js`)
+	// 	.pipe(rjsOpt({
+	// 		name: "index",
+	// 		paths: {
+	// 			angular: "empty:"
+	// 		},
+	// 		optimize: "none"
+	// 	}))
+	// 	.pipe(gulp.dest(`dist`))
+		
 
-	return jspm.bundle(`${paths.packageName} - angular`,
+	// var builder = new jspm.Builder();
+	// return builder.bundle(
+	// 	`${paths.packageName}`,
+	// 	`${paths.output}/${paths.packageName}.js`
+	// 	);
+	
+	// var builder = new jspm.Builder();
+	// return builder.buildStatic(
+	// 	`${paths.packageName}`,
+	// 	`${paths.output}/${paths.packageName}.js`, {
+	// 		format: "amd",
+	// 		sourceMaps: true, 
+	// 		lowResSourceMaps: true,
+	// 		// minify: true, 
+	// 		mangle: false,
+	// 		runtime: false
+	// 	})
+
+	return jspm.bundle(`${paths.packageName}`,
 		`${paths.output}/${paths.packageName}.js`, {
 			mangle: false,
 			inject: false,
-			sourceMaps: true
+			sourceMaps: true			
 		});
 });
