@@ -1,6 +1,6 @@
 {
   "name": "ssv-angular-core",
-  "version": "0.0.2",
+  "version": "0.1.1",
   "description": "ssv angularjs core utilities and service",
   "main": "dist/ssv-angular-core.js",
   "directories": {
@@ -12,18 +12,21 @@
   },
   "keywords": [
     "angularjs",
-    "tooltipster",
-    "ui-component"
+    "sketch7",
+    "core library"
   ],
   "author": "Stephen Lautier <stephen.lautier@outlook.com> (https://blog.stephen-lautier.com/)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/stephenlautier/experimental/tree/master/ssv-angular-core"
+    "url": "https://github.com/stephenlautier/ssv-angular-core"
   },
   "jspm": {
+    "main": "ssv-angular-core",
+    "format": "amd",
     "directories": {
       "doc": "doc",
+      "lib": "dist",
       "test": "test"
     },
     "dependencies": {
@@ -39,7 +42,6 @@
     }
   },
   "devDependencies": {
-    "browser-sync": "^2.9.10",
     "del": "^2.0.2",
     "dts-generator": "^1.5.0",
     "gulp": "^3.9.0",
