@@ -19,6 +19,7 @@ System.config({
     "core-js": "npm:core-js@1.2.2",
     "false": "npm:babel-core@5.8.25",
     "false-runtime": "npm:babel-runtime@5.8.25",
+    "jquery": "github:components/jquery@2.1.4",
     "ssv-angular-core": "_artifact/index",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
