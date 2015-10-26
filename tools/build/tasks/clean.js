@@ -2,7 +2,7 @@ var gulp = require("gulp");
 var del = require("del");
 var runSeq = require("run-sequence");
 
-var paths = require("../paths");
+var config = require("../config");
 
 
 gulp.task("clean", (cb) => {
@@ -13,9 +13,9 @@ gulp.task("clean", (cb) => {
 
 
 gulp.task("clean:dist", () => {
-	return del(paths.output)
+	return del(config.output)
 });
 
 gulp.task("clean:artifact", () => {
-	return del(paths.artifact)
+	return del(config.artifact)
 });

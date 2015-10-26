@@ -1,15 +1,15 @@
-import * as angular from 'angular';
-import {LoggerService, Logger, ILog, ILoggerFactory, loggerFactory } from "./logger/logger";
+import * as angular from "angular";
+import {LoggerService, loggerFactory } from "./logger/logger";
 import {consts} from "./core.consts";
 
 
-console.log(`>>> REGISTER ng-module '${consts.moduleName}'`);
-let coreModule = angular.module(consts.moduleName, [
+console.debug(`>>> REGISTER ng-module '${consts.moduleName}'`);
+let globalModule = angular.module(consts.moduleName, [
 
 ]);
 
-coreModule
+globalModule
 	.service(LoggerService.id, LoggerService)
 	.factory("loggerFactory", loggerFactory);
- 
-export default coreModule;
+
+export default globalModule;

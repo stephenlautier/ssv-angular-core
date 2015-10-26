@@ -1,8 +1,8 @@
 {
   "name": "ssv-angular-core",
-  "version": "0.1.1",
-  "description": "ssv angularjs core utilities and service",
-  "main": "dist/ssv-angular-core.js",
+  "version": "0.2.6",
+  "description": "ssv angularjs core utilities and services",
+  "main": "dist/amd/index.js",
   "directories": {
     "doc": "doc",
     "test": "test"
@@ -21,17 +21,18 @@
     "type": "git",
     "url": "https://github.com/stephenlautier/ssv-angular-core"
   },
+  "typescript": {
+    "definition": "dist/ssv-angular-core.d.ts"
+  },
   "jspm": {
-    "main": "ssv-angular-core",
     "format": "amd",
     "directories": {
       "doc": "doc",
-      "lib": "dist",
       "test": "test"
     },
+    "configFile": "system.config.js",
     "dependencies": {
-      "angular": "github:angular/bower-angular@^1.4.7",
-      "jquery": "github:components/jquery@^2.1.4"
+      "angular": "github:angular/bower-angular@^1.4.7"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
@@ -42,25 +43,34 @@
     }
   },
   "devDependencies": {
+    "conventional-changelog": "^0.5.1",
     "del": "^2.0.2",
     "dts-generator": "^1.5.0",
     "gulp": "^3.9.0",
     "gulp-bump": "^1.0.0",
     "gulp-concat": "^2.6.0",
+    "gulp-ng-annotate": "^1.1.0",
     "gulp-plumber": "^1.0.1",
-    "gulp-requirejs-optimize": "^0.3.0",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-tslint": "^3.4.0",
+    "gulp-tslint-stylish": "^1.0.4",
+    "gulp-typedoc": "^1.2.1",
     "gulp-typescript": "^2.9.2",
     "gulp-util": "^3.0.6",
     "jasmine-core": "^2.3.4",
+    "jasmine-es6-promise-matchers": "^2.0.1",
     "jspm": "^0.16.13",
     "karma": "^0.13.11",
     "karma-chrome-launcher": "^0.2.1",
     "karma-jasmine": "^0.3.6",
+    "karma-mocha-reporter": "^1.1.1",
     "karma-jspm": "^2.0.1",
     "merge2": "^0.3.6",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.4",
+    "systemjs": "^0.19.5",
+    "systemjs-builder": "^0.14.9",
+    "tsd": "^0.6.5",
     "typescript": "^1.6.2",
     "yargs": "^3.27.0"
   }

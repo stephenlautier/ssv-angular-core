@@ -4,9 +4,11 @@ import {ILog, LogType} from "./logger.model";
 
 export class LoggerService {
 	static id = "loggerService";
-		
+
 	/*@ngInject*/
-	constructor(private $log: ng.ILogService) {
+	constructor(
+		private $log: ng.ILogService
+	) {
 
 	}
 
@@ -14,23 +16,18 @@ export class LoggerService {
 		switch (logType) {
 
 			case LogType.Debug:
-				//console.debug(message, data);
 				this.$log.debug(message, data);
 				break;
 			case LogType.Info:
-				//console.info(message, data);
 				this.$log.info(message, data);
 				break;
 			case LogType.Error:
-				//console.error(message, data);
 				this.$log.error(message, data);
 				break;
 			case LogType.Warning:
-				//console.warn(message, data);
 				this.$log.warn(message, data);
 				break;
-			default:					
-				//console.log(message, data);
+			default:
 				this.$log.log(message, data);
 				break;
 		}
@@ -63,7 +60,7 @@ export class Logger implements ILog {
 	}
 
 	private _log(sourceId: string, source: string, logType: LogType, message?: string, data?: any) {
-		var msg = `[${sourceId}::${source}] ${message}`;
+		let msg = `[${sourceId}::${source}] ${message}`;
 		this.loggerService.log(logType, msg, data);
 	}
 
@@ -73,6 +70,7 @@ export interface ILoggerFactory {
 	(sourceId: string): ILog;
 }
 
+/*@ngInject*/
 export function loggerFactory(loggerService: LoggerService) {
 	return (sourceId: string): ILog => {
 		return new Logger(sourceId, loggerService);

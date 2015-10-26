@@ -1,11 +1,13 @@
 var gulp = require("gulp");
 var util = require("gulp-util");
 
-var paths = require("../paths")
+var config = require("../config")
 
-gulp.task("watch", ["serve"], () => {
+gulp.task("watch", () => {
 
-	gulp.watch(`${paths.src.ts}`, ["build"]).on("change", reportChange).on("error", swallowError);
+	gulp.watch(`${config.src.ts}`, ["compile:ts"]).on("change", reportChange).on("error", swallowError);
+	
+	gulp.watch(`${config.test.files}`, ["compile:test"]).on("change", reportChange).on("error", swallowError);
 
 });
 

@@ -1,5 +1,7 @@
 // reference: https://github.com/stephenlautier/angular-typescript/blob/master/app/services/logger.svc.ts
-
+/**
+ * Indicates the level of the log.
+ */
 export const enum LogType {
 	Debug,
 	Info,

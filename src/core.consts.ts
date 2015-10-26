@@ -1,9 +1,9 @@
 
 
-export class CoreConsts {
-	
-	moduleName = "ssv-core"
-	
+export class Consts {
+
+	moduleName = "ssv-angular-core";
+
 }
 
-export var consts = new CoreConsts();
+export var consts = new Consts();

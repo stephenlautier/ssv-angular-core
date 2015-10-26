@@ -1,41 +1,42 @@
 // Karma configuration
 // Generated on Mon Oct 19 2015 18:30:53 GMT+0200 (W. Europe Daylight Time)
+var path = require("path");
+var conf = require("./tools/build/config");
 
 module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
-
+    basePath: "",
 
     // frameworks to use
-    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jspm', 'jasmine'],
+    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter    
+    frameworks: ["jspm", "jasmine"],
 
     jspm: {
-      // config: "config.js",
-      // packages: "jspm_packages/",
-      //loadFiles: ["_artifact/test/**/*.js", "_artifact/**/*.js"],
-      loadFiles: ["_artifact/**/*.js"],
+      config: "system.config.js",
+      //packages: "jspm_packages/",
+      loadFiles: [`${conf.artifact}/**/*.js`],
       paths: {
-        "*": "*.js"
+        "*": "*.js",
+        "test-setup": `${conf.test.output}/test-setup.spec.js`,
+        "*.spec.js": `${config.artifact}/test/*.js`
       }
     },
 
-    // proxies: {
-    //   "/wwwroot/": "/base/wwwroot/",
-    //   "/dist/": "/base/wwwroot/dist/",
-    //   "/jspm_packages/": "/base/wwwroot/jspm_packages/",
-    // },
+    proxies: {
+      //"/_artifact/test/unit/": "/base/_artifact/test/unit/",
+      "/_artifact/": "/base/_artifact/",
+      "/jspm_packages/": "/base/jspm_packages/",
+    },
 
+  
     // list of files / patterns to load in the browser
     files: [
-      //"node_modules/jasmine-es6-promise-matchers/jasmine-es6-promise-matchers.js",
+      "node_modules/jasmine-es6-promise-matchers/jasmine-es6-promise-matchers.js",
+      //"_artifact/test/unit/test-setup.spec.js",
       {
-        pattern: "dist/**/*.js.map",
-        included: false
-      }, {
-        pattern: "jspm_packages/**/*.js",
+        pattern: `${conf.artifact}/**/*.js.map`,
         included: false
       }],
 
@@ -52,9 +53,9 @@ module.exports = function (config) {
 
 
     // test results reporter to use
-    // possible values: 'dots', 'progress'
+    // possible values: "dots", "progress"
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ["mocha"],
 
 
     // web server port
@@ -76,7 +77,7 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ["Chrome"],
 
 
     // Continuous Integration mode
