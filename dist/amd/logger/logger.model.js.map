@@ -1,0 +1,1 @@
+{"version":3,"sources":["logger/logger.model.js"],"names":[],"mappings":"AAAA,OAAO,CAAC,WAAW,YAAY,UAAU,SAAS,SAAS;;AAE3D","file":"logger/logger.model.js","sourcesContent":["define([\"require\", \"exports\"], function (require, exports) {\n});\n"],"sourceRoot":"/source/"}
